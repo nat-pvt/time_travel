@@ -202,6 +202,12 @@ export default function TimeQuiz({ onBookClick }: TimeQuizProps) {
       const winnerLabel = DESTINATION_META[winner].label;
 
       try {
+        interface QuizAPIResponse {
+          destination?: DestinationId;
+          recommendation: string;
+          fromAPI: boolean;
+        }
+
         const response = await fetch("/api/quiz", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -217,11 +223,12 @@ export default function TimeQuiz({ onBookClick }: TimeQuizProps) {
           }),
         });
 
-        const data = await response.json();
+        const data = (await response.json()) as QuizAPIResponse;
+        const destination: DestinationId = data.destination ?? winner;
 
         setResult({
-          destination: data.destination || winner,
-          label: DESTINATION_META[data.destination || winner].label,
+          destination,
+          label: DESTINATION_META[destination].label,
           recommendation: data.recommendation,
           fromAPI: data.fromAPI,
           scores,
