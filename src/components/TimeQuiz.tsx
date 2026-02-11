@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ─── Types ───────────────────────────────────────────────────────────
@@ -479,12 +480,16 @@ export default function TimeQuiz({ onBookClick }: TimeQuizProps) {
                 <div
                   className={`relative h-40 md:h-52 bg-gradient-to-br ${DESTINATION_META[result.destination].color} overflow-hidden`}
                 >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center opacity-40"
-                    style={{ backgroundImage: `url(${DESTINATION_META[result.destination].image})` }}
-                  />
+                  <div className="absolute inset-0 opacity-40">
+                    <Image
+                      src={DESTINATION_META[result.destination].image}
+                      alt={DESTINATION_META[result.destination].label}
+                      fill
+                      className="object-cover object-center"
+                    />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-card via-dark-card/60 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                  <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-10 relative">
                     <p className="text-gold/60 text-xs tracking-[0.2em] uppercase mb-1">
                       Votre destination idéale
                     </p>

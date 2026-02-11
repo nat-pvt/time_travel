@@ -227,10 +227,11 @@ export default function BookingModal({
 
                     {/* Destination */}
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <label htmlFor="destination" className="block text-sm font-medium text-gray-300 mb-2">
                         Destination temporelle
                       </label>
                       <select
+                        id="destination"
                         required
                         value={formData.destination}
                         onChange={(e) => handleDestinationChange(e.target.value)}
@@ -251,11 +252,12 @@ export default function BookingModal({
                     <div className="grid grid-cols-3 gap-3">
                       {/* Année temporelle (accepte négatif) */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="temporalYear" className="block text-sm font-medium text-gray-300 mb-2">
                           Année cible
                         </label>
                         <div className="relative">
                           <input
+                            id="temporalYear"
                             type="number"
                             required
                             value={formData.temporalYear}
@@ -275,10 +277,11 @@ export default function BookingModal({
 
                       {/* Date de départ (réel) */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="departureDate" className="block text-sm font-medium text-gray-300 mb-2">
                           Départ réel
                         </label>
                         <input
+                          id="departureDate"
                           type="date"
                           required
                           value={formData.departureDate}
@@ -291,10 +294,11 @@ export default function BookingModal({
 
                       {/* Voyageurs */}
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label htmlFor="travelers" className="block text-sm font-medium text-gray-300 mb-2">
                           Voyageurs
                         </label>
                         <input
+                          id="travelers"
                           type="number"
                           min={1}
                           max={6}

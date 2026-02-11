@@ -41,8 +41,8 @@ body {
 /* Glassmorphism utilitaire */
 .glass {
   background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(212, 175, 55, 0.15);
 }
 
